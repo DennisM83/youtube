@@ -15,6 +15,11 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def download
+    @post = Post.find(params[:id])
+    send_data @post.video.download, filename: @post.video.filename.to_s
+  end
+
   # GET /posts/1/edit
   def edit
   end
@@ -65,6 +70,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :description)
+      params.require(:post).permit(:title, :description, :image, :video)
     end
 end
