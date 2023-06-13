@@ -8,6 +8,7 @@
                 <li><%= link_to "Home", root_path %></li>
                 <% if current_user %>
                     <li class="mx-5"><a href="#"><%= link_to  "Upload", new_post_path %></a></li>
+                    <li><%= link_to  "My Media", pages_media_path %></li>
                     <li class="mx-5"><%= button_to( "Log Out", destroy_user_session_path, method: :delete ) %></li>
                     <% else %>
                     <li><a href="#"><%=  link_to "Sign up", new_user_registration_path %></a></li>
